@@ -23,7 +23,11 @@
   "keywords": [
     "node-red"
   ],
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "node-red": {
+    "version": ">=3.0.0",
     "nodes": {
       "socket.io server": "src/socketio-server.js",
       "socket.io in": "src/socketio-in.js",
