@@ -1,0 +1,1 @@
+This package is a collection of socket.io nodes for node red.

@@ -1,0 +1,85 @@
+<script type="text/javascript">
+  RED.nodes.registerType("socket.io out", {
+    category: "extensions",
+    color: "#c6ff00",
+    defaults: {
+      name: { value: "" },
+      // Server
+      server: { value: "", type: "socket.io server" },
+      // Event
+      event: {
+        value: "event",
+        validate: RED.validators.typedInput("eventType", false),
+      },
+      eventType: { value: "msg" },
+      // Target
+      target: {
+        value: "socketId",
+        validate: RED.validators.typedInput("targetType", false),
+      },
+      targetType: { value: "msg" },
+      // Data
+      data: {
+        value: "payload",
+        validate: RED.validators.typedInput("dataType", false),
+      },
+      dataType: { value: "msg" },
+    },
+    inputs: 1,
+    outputs: 0,
+    icon: "bridge-dash.png",
+    label: function () {
+      return this.name || "socket.io out";
+    },
+    oneditprepare: function () {
+      $("#node-input-event").typedInput({
+        default: "msg",
+        types: ["str", "msg"],
+        typeField: "#node-input-eventType",
+      });
+      $("#node-input-target").typedInput({
+        default: "msg",
+        types: ["str", "msg"],
+        typeField: "#node-input-targetType",
+      });
+      $("#node-input-data").typedInput({
+        default: "msg",
+        types: ["str", "num", "json", "msg"],
+        typeField: "#node-input-dataType",
+      });
+    },
+  });
+</script>
+
+<script type="text/html" data-template-name="socket.io out">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-server">Server</label>
+    <input type="text" id="node-input-server" />
+  </div>
+  <!-- Broadcast Event -->
+  <div class="form-row">
+    <label for="node-input-event">Broadcast Event</label>
+    <input type="text" id="node-input-event" />
+    <input type="hidden" id="node-input-eventType" />
+  </div>
+  <!-- Broadcast Target -->
+  <div class="form-row">
+    <label for="node-input-target">Broadcast Target (Socket ID or Room)</label>
+    <input type="text" id="node-input-target" />
+    <input type="hidden" id="node-input-targetType" />
+  </div>
+  <!-- Data -->
+  <div class="form-row">
+    <label for="node-input-data">Broadcast Data</label>
+    <input type="text" id="node-input-data" />
+    <input type="hidden" id="node-input-dataType" />
+  </div>
+</script>
+
+<script type="text/markdown" data-help-name="socket.io out">
+  <p>N/A</p>
+</script>

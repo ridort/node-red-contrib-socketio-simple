@@ -1,0 +1,60 @@
+<script type="text/javascript">
+  RED.nodes.registerType("socket.io server", {
+    category: "config",
+    defaults: {
+      name: { value: "" },
+      // host: { value: "localhost", required: true },
+      port: { value: 1881, required: true, validate: RED.validators.number() },
+      corsOrigin: { value: "" },
+      corsMethods: { value: "" },
+      corsAllowedHeaders: { value: "" },
+      corsCredentials: { value: "" },
+    },
+    label: function () {
+      return this.name || "socket.io server";
+    },
+    oneditprepare: function () {
+      $("#node-config-input-corsCredentials").typedInput({
+        default: "str",
+        types: ["str", "bool"],
+        typeField: "#node-config-input-corsCredentialsType",
+      });
+    },
+  });
+</script>
+
+<script type="text/html" data-template-name="socket.io server">
+  <!-- Name -->
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-config-input-name" placeholder="Name" />
+  </div>
+  <!-- port -->
+  <div class="form-row">
+    <label for="node-config-input-port">Port</label>
+    <input type="text" id="node-config-input-port" />
+  </div>
+  <!-- corsOrigin -->
+  <div class="form-row">
+    <label for="node-config-input-corsOrigin">CORS Origin</label>
+    <input type="text" id="node-config-input-corsOrigin" />
+  </div>
+  <!-- corsMethods -->
+  <div class="form-row">
+    <label for="node-config-input-corsMethods">CORS Methods</label>
+    <input type="text" id="node-config-input-corsMethods" />
+  </div>
+  <!-- corsAllowedHeaders -->
+  <div class="form-row">
+    <label for="node-config-input-corsAllowedHeaders"
+      >CORS AllowedHeaders</label
+    >
+    <input type="text" id="node-config-input-corsAllowedHeaders" />
+  </div>
+  <!-- corsCredentials -->
+  <div class="form-row">
+    <label for="node-config-input-corsCredentials">CORS Credentials</label>
+    <input type="text" id="node-config-input-corsCredentials" />
+    <input type="hidden" id="node-config-input-corsCredentialsType" />
+  </div>
+</script>

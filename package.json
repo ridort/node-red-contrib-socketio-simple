@@ -1,0 +1,30 @@
+{
+  "name": "@ridort/node-red-contrib-socketio-simple",
+  "version": "0.1.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridort/node-red-contrib-socketio-simple.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ridort/node-red-contrib-socketio-simple/issues"
+  },
+  "homepage": "https://github.com/ridort/node-red-contrib-socketio-simple#readme",
+  "dependencies": {
+    "socket.io": "^4.5.1",
+    "socketio-wildcard": "^2.0.0"
+  },
+  "node-red": {
+    "nodes": {
+      "socket.io server": "src/socketio-server.js",
+      "socket.io in": "src/socketio-in.js",
+      "socket.io out": "src/socketio-out.js"
+    }
+  }
+}
