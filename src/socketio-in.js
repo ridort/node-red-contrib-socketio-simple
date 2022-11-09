@@ -8,10 +8,10 @@ module.exports = function (RED) {
 
     // Node inputs
     node.inServer = RED.nodes.getNode(config.server);
-    node.inEvent = config.event ?? "";
+    node.inEvent = config.event;
 
     // Config node event name
-    const sioEvent = `sio___${node.inEvent}`;
+    const sioEvent = `sio_event__${node.inEvent}`;
 
     // *************************************************************************
     // Node logic

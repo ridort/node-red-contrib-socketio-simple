@@ -44,8 +44,7 @@ module.exports = function (RED) {
 
       socket.on("*", (packet) => {
         const [event, payload] = packet.data;
-        node.emit(`sio___${event}`, { event, payload, socketId });
-        node.emit(`sio___`, { event, payload, socketId });
+        node.emit(`sio_event__${event}`, { event, payload, socketId });
       });
 
       socket.on("disconnect", () => {
