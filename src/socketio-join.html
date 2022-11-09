@@ -1,0 +1,68 @@
+<script type="text/javascript">
+  RED.nodes.registerType("socket.io join", {
+    category: "extensions",
+    color: "#c6ff00",
+    defaults: {
+      name: { value: "" },
+      // Server
+      server: { value: "", type: "socket.io server" },
+      // Room
+      room: {
+        value: "payload",
+        validate: RED.validators.typedInput("roomType", false),
+      },
+      roomType: { value: "msg" },
+      // Target
+      target: {
+        value: "socketId",
+        validate: RED.validators.typedInput("targetType", false),
+      },
+      targetType: { value: "msg" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "bridge-dash.png",
+    label: function () {
+      return this.name || "socket.io join";
+    },
+    oneditprepare: function () {
+      $("#node-input-room").typedInput({
+        default: "msg",
+        types: ["str", "msg"],
+        typeField: "#node-input-roomType",
+      });
+      $("#node-input-target").typedInput({
+        default: "msg",
+        types: ["str", "msg"],
+        typeField: "#node-input-targetType",
+      });
+    },
+  });
+</script>
+
+<script type="text/html" data-template-name="socket.io join">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-server">Server</label>
+    <input type="text" id="node-input-server" />
+  </div>
+  <!-- Room -->
+  <div class="form-row">
+    <label for="node-input-room">Room</label>
+    <input type="text" id="node-input-room" />
+    <input type="hidden" id="node-input-roomType" />
+  </div>
+  <!-- Target -->
+  <div class="form-row">
+    <label for="node-input-target">Target (Socket ID)</label>
+    <input type="text" id="node-input-target" />
+    <input type="hidden" id="node-input-targetType" />
+  </div>
+</script>
+
+<script type="text/markdown" data-help-name="socket.io join">
+  <p>N/A</p>
+</script>

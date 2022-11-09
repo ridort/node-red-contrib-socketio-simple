@@ -31,7 +31,9 @@
     "nodes": {
       "socket.io server": "src/socketio-server.js",
       "socket.io in": "src/socketio-in.js",
-      "socket.io out": "src/socketio-out.js"
+      "socket.io out": "src/socketio-out.js",
+      "socket.io join": "src/socketio-join.js",
+      "socket.io leave": "src/socketio-leave.js"
     }
   }
 }
