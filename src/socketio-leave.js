@@ -25,7 +25,7 @@ module.exports = function (RED) {
       const room = parseTypedInputs(node.inRoom, node.inRoomType, msg, RED);
       const target = parseTypedInputs(node.inTarget, node.inTargetType, msg, RED);
 
-      io.sockets.get(target).leave(room);
+      io.sockets.sockets.get(target).leave(room);
 
       node.send(msg);
     };
